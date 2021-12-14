@@ -9,13 +9,25 @@ const createIconWindow = () => {
   iconWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    frame: false,
+    // transparent: true, // To be uncommented once the icon renderer has an actual icon to show
+    resizable: false,
+    alwaysOnTop: true,
+    hasShadow: false,
+    webPreferences: {
+      nodeIntegration: true, contextIsolation: false, // This line allows the renderers to use node commands
+      disableHtmlFullscreenWindowResize: true
+    }
   })
 
-  iconWindow.loadFile(path.join(__dirname, 'renderers', 'icon', 'icon.html'))
+  iconWindow.webContents.openDevTools(); // To be removed later
+
+  iconWindow.loadFile(path.join(__dirname, 'renderers', 'icon', 'icon.html'));
+  iconWindow.once('ready-to-show', () => { iconWindow.show(); });
 }
 
 
-
+/* APP START - END */
 app.whenReady().then( () => {
   createIconWindow();
   app.on('activate', () => {
