@@ -7,10 +7,12 @@ let appWindow;
 
 const createIconWindow = () => {
   iconWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 80,
+    height: 80,
+    // The window proportion should be adapted to your icons/logos proportions 
+    // to make it fit: see ./renderers/icon/icon.html
     frame: false,
-    // transparent: true, // To be uncommented once the icon renderer has an actual icon to show
+    transparent: true,
     resizable: false,
     alwaysOnTop: true,
     hasShadow: false,
@@ -20,7 +22,7 @@ const createIconWindow = () => {
     }
   })
 
-  iconWindow.webContents.openDevTools(); // To be removed later
+  // iconWindow.webContents.openDevTools();
 
   iconWindow.loadFile(path.join(__dirname, 'renderers', 'icon', 'icon.html'));
   iconWindow.once('ready-to-show', () => { iconWindow.show(); });
