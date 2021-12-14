@@ -1,0 +1,26 @@
+{
+  "name": "magic-icon",
+  "version": "1.0.0",
+  "description": "A desktop floating icon usable as a push notifications tool and apps launcher.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandelrot/magic-icon.git"
+  },
+  "author": {
+    "name": "Jose Alemán / Mandelrot",
+    "email": "mail@mandelrot.com",
+    "url": "http://josealeman.info"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandelrot/magic-icon/issues"
+  },
+  "homepage": "https://github.com/mandelrot/magic-icon#readme",
+  "devDependencies": {
+    "electron": "^16.0.4"
+  }
+}
