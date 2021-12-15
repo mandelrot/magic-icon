@@ -1,5 +1,5 @@
 const path = require('path');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, screen, ipcMain } = require('electron');
 
 let iconWindow;
 let menuWindow;
@@ -7,8 +7,8 @@ let appWindow;
 
 const createIconWindow = () => {
   iconWindow = new BrowserWindow({
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
     // The window proportion should be adapted to your icons/logos proportions 
     // to make it fit: see ./renderers/icon/icon.html
     frame: false,
@@ -41,3 +41,13 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
+
+/* MAIN ICON DRAGGABLE FUNCTIONS */
+ipcMain.on('windowMoving', (e, {mouseX, mouseY}) => {
+  const { x, y } = screen.getCursorScreenPoint();
+  iconWindow.setPosition(x - mouseX, y - mouseY);
+});
+
+ipcMain.on('windowMoved', () => {
+  // To do later: once dragging is finished, work with the new window coordinates
+});
