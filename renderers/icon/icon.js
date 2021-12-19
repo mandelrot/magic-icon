@@ -19,7 +19,7 @@ let mouseY;
 function onMouseDown(e) {
   mouseX = e.clientX;  
   mouseY = e.clientY;
-
+  
   document.addEventListener('mouseup', onMouseUp)
   requestAnimationFrame(this.moveWindow);
 }
