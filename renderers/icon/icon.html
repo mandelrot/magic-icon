@@ -4,19 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .window-cover {
+      position: absolute; top: 0; bottom: 0; left: 0; right: 0; 
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
 <body
   style="overflow: hidden;"
+  onmousedown="onMouseDown(event)" 
+  onmouseup="onMouseUp(event)" 
   >
 
-  <!-- The icon shape should be compatible with the window dimensions, see main.js -->
-  <img 
+  <!-- The icon shape should match the window dimensions, see main.js -->
+  <div 
     id="iconImage"
-    width="100%" 
+    class="window-cover"
     >
+    <!-- Electron have some issues when applying the dragging functions to an img but it works fine
+    when it's a div tag, so placing a div and setting the icon as background-image is a workaround -->
+  </div>
   
-  <script src="./icon.js">
-    
-  </script>
+  <script src="./icon.js"></script>
+  
 </body>
 </html>
