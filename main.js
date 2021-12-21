@@ -1,5 +1,7 @@
 const path = require('path');
-const { app, BrowserWindow, screen, ipcMain, ipcRenderer } = require('electron');
+const { app, BrowserWindow, screen, ipcMain } = require('electron');
+const windowStateKeeper = require('electron-window-state'); // Persisting window position after restart
+
 
 let iconWindow;
 let menuWindow;
@@ -21,9 +23,16 @@ app.whenReady().then( () => {
 });
 
 const createIconWindow = () => {
+
+  let winState = windowStateKeeper({
+    defaultWidth: iconWindowWidth, defaultHeight: iconWindowHeight
+  });
+
   iconWindow = new BrowserWindow({
     width: iconWindowWidth,
     height: iconWindowHeight,
+    x: winState.x,
+    y: winState.y,
     frame: false,
     transparent: true,
     resizable: false,
@@ -35,7 +44,11 @@ const createIconWindow = () => {
     }
   })
   iconWindow.loadFile(path.join(__dirname, 'renderers', 'icon', 'icon.html'));
-  iconWindow.once('ready-to-show', () => { iconWindow.show(); });
+  winState.manage(iconWindow);
+  iconWindow.once('ready-to-show', () => { 
+    iconWindow.show(); 
+    adjustIconWindowPosition();
+  });
 }
 
 app.on('window-all-closed', () => {
@@ -49,7 +62,7 @@ app.on('window-all-closed', () => {
 function adjustIconWindowPosition() { // if needed
   const iconWindowCoordinates = getIconWindowCoordinates();
   const currentScreenBounds = getCurrentScreenBounds();
-  // If the icon window steps out of the screenboundaries we push it into them
+  // If the icon window steps out of the screen boundaries we push it into them
   let leftOk, topOk;
   leftOk = iconWindowCoordinates.left < currentScreenBounds.left ?
     currentScreenBounds.left : iconWindowCoordinates.left;
@@ -59,7 +72,6 @@ function adjustIconWindowPosition() { // if needed
     currentScreenBounds.right - iconWindowWidth : leftOk;
   topOk = (topOk + iconWindowHeight) > currentScreenBounds.bottom ?
     currentScreenBounds.bottom - iconWindowHeight : topOk;
-  console.log (leftOk, topOk)
   iconWindow.setPosition(leftOk, topOk);
 }
 
@@ -81,7 +93,7 @@ function setMenuWindowCoordinates() {
   const currentScreenBounds = getCurrentScreenBounds();
   const iconWindowCoordinates = getIconWindowCoordinates();
   
-  // ESTAMOS AQUI
+  // To do next
 }
 
 

@@ -22,5 +22,8 @@
   "homepage": "https://github.com/mandelrot/magic-icon#readme",
   "devDependencies": {
     "electron": "^16.0.4"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3"
   }
 }
