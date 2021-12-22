@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./menu.css">
+</head>
+<body>
+
+  <!-- Anything can be done here: icons with animated badges, dynamic contents
+  or styles triggered by backend notifications, etc. The ./menu.js file is
+  connected to the main process via ipcRenderer -->
+  
+    <div class="container">
+      <div id="desktop_app"
+        onclick="sendMessageToMainProcess(event.target.id)"
+        >Launch desktop app</div>
+      <hr>
+      <div id="web"
+        onclick="sendMessageToMainProcess(event.target.id)"
+        >Launch web app</div>
+      <hr>
+      <div id="quit"
+        onclick="sendMessageToMainProcess(event.target.id)"
+        >Quit</div>
+    </div>
+
+  <script src="./menu.js"></script>
+  
+</body>
+</html>

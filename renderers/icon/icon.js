@@ -1,3 +1,6 @@
+const {ipcRenderer} = require('electron');
+
+
 const iconBasicPath = '../../resources/static/main-icons/icon-basic.png';
 const iconNotifyPath = '../../resources/static/main-icons/icon-notify.png';
 
@@ -7,8 +10,6 @@ const iconImage = document.getElementById('iconImage');
 window.onload = function () {
   iconImage.setAttribute('style', 'background-image: url(' + iconBasicPath + ')');
 }
-
-const {ipcRenderer} = require('electron');
 
 
 /* Making the icon draggable */
@@ -36,9 +37,14 @@ function moveWindow() {
 }
 
 
+/* Launching the context menu when right-clicking */
+function onContextmenu() {
+  ipcRenderer.send('contextMenu');
+}
+
 
 /* 
-To be included later: 
+To be included by the final developer: 
 
   - Communication with the main process
 
