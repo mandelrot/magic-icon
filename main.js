@@ -60,6 +60,8 @@ const createIconWindow = () => {
     iconWindow.show(); 
     adjustIconWindowPosition();
   });
+
+  iconWindow.webContents.send('notification')
 }
 
 function adjustIconWindowPosition() { // if needed
@@ -169,6 +171,14 @@ ipcMain.on('menuAppClicked', (event, elementName) => {
 
 /* DESKTOP APP WINDOW */
 const openDesktopWindow = (appName) => {
+  // If the window is already open we just set it on focus
+  const currentWindows = BrowserWindow.getAllWindows();
+  for (const window of currentWindows) {
+    if (window.name === appName) {
+      return window.focus();
+    }
+  }
+
   const appWindow = new BrowserWindow({
     width: 920,
     height: 700,
@@ -177,7 +187,7 @@ const openDesktopWindow = (appName) => {
       nodeIntegration: true, contextIsolation: false
     }
   });
-
+  appWindow.name = appName; // Trick to avoid duplicate windows
   appWindow.loadFile(path.join(__dirname, 'renderers', appName, appName + '.html'));
    // Security warning about Electron: if you open a desktop Electron window to load
    // an external webpage whose code you don't know, do NOT enable "nodeIntegration"
@@ -214,7 +224,20 @@ function getIconWindowCoordinates() {
   return { left, right, top, bottom };
 }
 
-ipcMain.on('notification', () => {
-  console.log ('Notification received');
-  // Next: handling notifications
-})
+// Notifications
+ipcMain.on('notification', (e) => {
+  sendNotification([iconWindow]); // See function below
+});
+
+async function sendNotification(windowsArray) {
+  // In the basic example the notifications are sent only to the icon window,
+  // but being an array you could include others here and implement listeners there
+  for (const window of windowsArray) {
+    if (window.webContents) {
+      window.webContents.send('notification');
+    } else {
+      // Here you should place the anternative behavior in case
+      // the window you are sending the message isn't created yet
+    }
+  }
+}
