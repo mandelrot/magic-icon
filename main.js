@@ -167,11 +167,12 @@ ipcMain.on('menuAppClicked', (event, elementName) => {
 
 
 
-/* OPENING DESKTOP APP WINDOWS */
+/* DESKTOP APP WINDOW */
 const openDesktopWindow = (appName) => {
   const appWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 920,
+    height: 700,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true, contextIsolation: false
     }
@@ -212,3 +213,8 @@ function getIconWindowCoordinates() {
   const bottom = top + iconWindowHeight;
   return { left, right, top, bottom };
 }
+
+ipcMain.on('notification', () => {
+  console.log ('Notification received');
+  // Next: handling notifications
+})
