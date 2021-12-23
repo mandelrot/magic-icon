@@ -48,6 +48,7 @@ const createIconWindow = () => {
     resizable: false,
     alwaysOnTop: true,
     hasShadow: false,
+    skipTaskbar: true,
     webPreferences: {
       nodeIntegration: true, contextIsolation: false,
       disableHtmlFullscreenWindowResize: true
