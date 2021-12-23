@@ -1,0 +1,50 @@
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 0.5em;
+}
+
+h2 {
+  font-weight: lighter;
+}
+
+li {
+  padding: 0.5em 0;
+}
+
+div {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 1em;
+  margin: 0.8em 0;
+  background-color: #990000;
+  color: white;
+  border-radius: 0.4em;
+  -webkit-box-shadow: 10px 9px 18px 0px rgba(219,219,219,0.22);
+  -moz-box-shadow: 10px 9px 18px 0px rgba(219,219,219,0.22);
+  box-shadow: 10px 9px 18px 0px rgba(219,219,219,0.22);
+  user-select: none;
+}
+.button:hover {
+  background-color: #880000;
+}
+
+footer {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background-color: white;
+  border-top: 1px solid;
+  border-color: gray;
+  text-align: center;
+  padding: 0.8em;
+  color: gray;
+}
+
+span {
+  cursor: pointer;
+  color: #990000;
+  text-decoration: underline;
+}

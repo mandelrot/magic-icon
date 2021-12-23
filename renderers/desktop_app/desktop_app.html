@@ -4,9 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="shortcut icon" href="../../resources/static/main-icons/icon-basic.png" type="image/png">
+  <link rel="stylesheet" href="./desktop_app.css">
+  <title>Desktop app example</title>
 </head>
 <body>
-  Aquí se abre la app interna
+
+  <h2>Small details can make a difference for your apps</h2>
+
+  <p>
+    The "magic icon" module has being designed to give your apps a plus in terms of productivity and user experience. With just some small tweaks you can enable new features, check out these example ideas: 
+  </p>
+
+  <ul>
+    <li><b>One login, many sessions.</b> Do your users need to identify themselves in different apps? You can enable one login for all of them (with a login mini-app like this page), store the data in the magic icon module, and managing the identification process internally before opening the destination address so they don't need to fill in the login form again and again. Using a one-time-token and passing it to external urls you can do this with browser webpages as well.
+    </li>
+    <li><b>Menu customization.</b> Not only with your own corporate visual identity but also including dynamic icons, different contents or styles depending on whether there are notifications to attend, and so on.</li>
+    <li><b>Dynamic icon notifications.</b> This basic example just switch colors and adds a number, but since it's just html-css the possibities are endless. You could also make the icon "blink" by switching between the basic and the active icon, animate transitions and much more.
+    </li>
+  </ul>
+
+  <p>
+    Let's see the notifications in action. Clicking on this button will simulate a backend incoming connection (example: via a socket communications module), do it several times and see what happens with the icon:
+  </p>
+  <div>
+    <div class="button" onclick="triggerNotification()">Trigger a new notification</div>
+  </div>
+  <p>
+    And clicking on the icon will take it to its original state. Anyway this is just a basic example, you can easily enable new features tailored to your organization needs.
+  </p>
+
+  <footer>
+    Created by Jose Alemán / Mandelrot. Checkout <span onclick="openBrowserWindow(event.target.id)" id="http://josealeman.info">my professional page</span> or <span onclick="openBrowserWindow(event.target.id)" id="https://mandelrot.com">my blog</span> for more info.
+  </footer>
+
+  <script src="./desktop_app.js"></script>
+  
 </body>
 </html>
