@@ -30,6 +30,7 @@
   },
   "build": {
     "appId": "com.mandelrot.magic-icon",
+    "asar": false,
     "copyright": "Copyright Jose Alemán / Mandelrot",
     "mac": {
       "category": "public.app-category.productivity",
