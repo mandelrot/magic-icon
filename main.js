@@ -10,7 +10,7 @@ const iconWindowHeight = 60; // proportions, see ./renderers/icon/icon.html
 
 let menuWindow;
 const menuWindowWidth = 260;  // This should match the .html menu,
-const menuWindowHeight = 165; // see ./renderers/menu/menu.html
+const menuWindowHeight = 170; // see ./renderers/menu/menu.html
 let menuWindowPosition = {}; // Recalculated when relocating the main icon
 
 

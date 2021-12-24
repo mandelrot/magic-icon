@@ -10,6 +10,7 @@ should use their own matching the apps style */
   padding: .2em;
   cursor: pointer;
   user-select: none;
+  border: 0.2em solid #990000;
   border-radius: 0.5rem;
   background-color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
