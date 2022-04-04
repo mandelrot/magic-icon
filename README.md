@@ -4,7 +4,7 @@ An UX boost to add to your app: a minimal desktop floating icon (replace it with
 and as a fully customizable non-invasive notifications system.
 
 <div align="center">
-<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhgZ36c-uNWlRnE8et_kaEjvCv68OHr5_7gcjzoIIMeheVBdCGPK6KMMSVZ-1hUHy1bwVxTU0A4TUX4MdX7ZtIpl8ZUtKrwmYoPEbAH6TpU0V4Z8yviBPd86vZz8v56DEXfEvngN2CdSFRYV7EJR3KwaouwTriSYIx-avC0csBH42gwtp_1ZclJdArL" width="90%"/>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMgRVnOQEL5iX9ZkH67M_VDVuv4t3ZnMYpJ-oyV_g8a6L8Tue6U_UrJNpfTLlmWDjVWWTBG_-4UMljyDWcr2X-2aX8FE14pIxTZvmeaSzUWD2CGcXDEkhr_XYV6aPqI8ovGhaLgab5yssKlTOITn4QK6x5bQ6sgPEBAuZCwKlJdtCgTpY1gb9jJmru/s1600/mi-description.gif" width="90%"/>
 </div>
 <br>
 
