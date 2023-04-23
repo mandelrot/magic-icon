@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/mandelrot/magic-icon#readme",
   "devDependencies": {
-    "electron": "^18.3.7",
+    "electron": "^24.1.2",
     "electron-builder": "^24.2.1"
   },
   "dependencies": {
